@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class AuthBlService {
   constructor(private router: Router) { }
   
   login(uname:string, pword:string): number{
