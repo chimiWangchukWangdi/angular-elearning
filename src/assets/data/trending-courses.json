@@ -1,0 +1,26 @@
+[
+    {
+        "id": 3,
+        "name": "JavaScript Basics",
+        "cover": "https://unsplash.com/photos/TEemXOpR3cQ",
+        "rating": 4,
+        "reviews": [
+        ]
+    },
+    {
+        "id": 7,
+        "name": "Angular Basics",
+        "cover": "https://www.pexels.com/photo/road-landscape-sunset-field-7953208/",
+        "rating": 5,
+        "reviews":[
+        ]
+    },
+    {
+        "id": 11,
+        "name": "Angular Advance",
+        "cover": "https://www.pexels.com/photo/black-screen-with-code-4164418/",
+        "rating": 4.5,
+        "reviews":[
+        ]
+    }
+]

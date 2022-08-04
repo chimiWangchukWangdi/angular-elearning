@@ -1,0 +1,22 @@
+<app-header></app-header>
+<div class="home-container">
+    <div class="all-courses">
+        <div class="trending-courses">
+            <div class="top">
+                <h4>Trending Courses</h4>
+                <div class="view-all">View All</div>
+            </div>
+            <div class="courses-thumbnail">
+                <div class="course" *ngFor="let course of trendingCourses">
+                    <div class="cover">
+                        <img [src]="course.cover" alt="">
+                    </div>
+                    <div class="detail">
+                        <div class="name">{{ course.name }}</div>
+                        <div class="rating">{{ course.rating }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
