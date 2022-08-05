@@ -8,8 +8,8 @@
             </div>
             <div class="courses-thumbnail">
                 <div class="course" *ngFor="let course of trendingCourses">
-                    <div class="cover">
-                        <img [src]="course.cover" alt="">
+                    <div class="cover" (click)="goToCourse('trending', course.id, course.name)">
+                        <img [src]="course.cover" height="200px" alt="">
                     </div>
                     <div class="detail">
                         <div class="name">{{ course.name }}</div>

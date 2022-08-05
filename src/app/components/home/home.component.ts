@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
   trendingCourses: any;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
     this.getTrendingCourses();
@@ -22,5 +22,9 @@ export class HomeComponent implements OnInit {
       this.trendingCourses = courses;
       console.log(this.trendingCourses);
     })
+  }
+
+  goToCourse(type: string, id: string, name:string) {
+    this.router.navigate(['course', type, id, name]);
   }
 }

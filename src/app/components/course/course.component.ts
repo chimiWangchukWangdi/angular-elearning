@@ -13,7 +13,6 @@ export class CourseComponent implements OnInit {
   id: number = 0;
   url: string = '';
   courses: any;
-  index: number = 0;
   course: any;
 
 
@@ -22,19 +21,20 @@ export class CourseComponent implements OnInit {
   ngOnInit(): void {
     this.type = this.route.snapshot.params['type'];
     this.id = this.route.snapshot.params['id'];
-    if(this.type === 'trending') {
+    if (this.type === 'trending') {
       this.url = 'http://localhost:4200/assets/data/trending-courses.json';
     }
+    this.getCourse();
   }
 
-  getCourse(){
-    this.http.get(this.url).subscribe((courses) =>{
+  getCourse() {
+    this.http.get(this.url).subscribe((courses) => {
       this.courses = courses;
       let index = this.courses.findIndex((course: { id: number; }) => course.id == this.id);
-      if(this.index > -1) {
+      if (index > -1) {
         this.course = this.courses[index]
       }
-    })
+    });
   }
 
 }

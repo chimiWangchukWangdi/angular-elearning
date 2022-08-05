@@ -6,16 +6,19 @@ import { Router } from '@angular/router';
 })
 export class AuthBlService {
   constructor(private router: Router) { }
-  
-  login(uname:string, pword:string): number{
-    if (uname === 'cww' && pword === '12345'){
+
+  login(uname: string, pword: string): number {
+    if (uname === 'student' && pword === '123') {
       return 200;
-    }else{
+    }
+    else if (uname === 'teacher' && pword === '123') {
+      return 201;
+    }
+    else if (uname === 'admin' && pword === '123') {
+      return 202;
+    }
+    else {
       return 403;
     }
-  }
-
-  logout(): void {
-    this.router.navigate(['login']);
   }
 }

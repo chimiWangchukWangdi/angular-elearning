@@ -29,6 +29,7 @@
                 .cover {
                     img {
                         border-radius: 5px;
+                        cursor: pointer;
                     }
                 }
                 .detail {
@@ -37,7 +38,6 @@
                         font-weight: bold;
                         height: 50px;
                         margin-top: 5px;
-                        cursor: pointer;
                     }
                 }
             }

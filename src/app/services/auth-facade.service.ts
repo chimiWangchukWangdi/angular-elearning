@@ -10,8 +10,4 @@ export class AuthFacadeService {
   login(uname:string, pword:string): number{
        return this.blService.login(uname, pword);
   }
-
-  logout(): void {
-      this.blService.logout();
-  }
 }
