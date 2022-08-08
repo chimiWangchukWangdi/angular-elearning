@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthFacadeService } from 'src/app/services/auth-facade.service';
 
@@ -12,22 +13,33 @@ export class LoginComponent implements OnInit {
   userName: string = '';
   password: string = '';
   errorMessage: string = '';
+  uname: any;
+  pword: any;
 
-  constructor(private auth: AuthFacadeService, private router: Router) { }
+  constructor(private fb:FormBuilder, private auth: AuthFacadeService, private router: Router) { }
+
+  loginForm = this.fb.group({
+    userName: [''],
+    password: [''],
+  })
 
   ngOnInit(): void {
   }
 
+
+
   login() {
-    if (this.userName.trim().length === 0) {
+     this.uname = this.loginForm.get('userName')?.value;
+     this.pword = this.loginForm.get('password')?.value;
+    if (this.uname.trim().length === 0) {
       this.errorMessage = 'User name is required!';
     }
-    else if (this.password.trim().length === 0) {
+    else if (this.pword.trim().length === 0) {
       this.errorMessage = 'Password is required!';
     }
     else {
       this.errorMessage = "";
-      let response = this.auth.login(this.userName, this.password);
+      let response = this.auth.login(this.uname, this.pword);
       if (response === 200) {
         this.router.navigate(['home']);
       }
@@ -43,5 +55,4 @@ export class LoginComponent implements OnInit {
     }
 
   }
-
 }

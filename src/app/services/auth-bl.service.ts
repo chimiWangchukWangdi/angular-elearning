@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthBlService {
-  constructor(private router: Router) { }
+  constructor() { }
 
   login(uname: string, pword: string): number {
     if (uname === 'student' && pword === '123') {

@@ -20,7 +20,6 @@ export class HomeComponent implements OnInit {
   getTrendingCourses() {
     this.http.get('http://localhost:4200/assets/data/trending-courses.json').subscribe((courses) => {
       this.trendingCourses = courses;
-      console.log(this.trendingCourses);
     })
   }
 

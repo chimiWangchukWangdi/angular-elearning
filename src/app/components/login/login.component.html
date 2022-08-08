@@ -5,18 +5,18 @@
         Welcome to E-Learning academy.
     </div>
 </div>
-<div class="login-form">
+<form class="login-form" [formGroup]="loginForm" (ngSubmit)="login()">
     <div class="form-group">
         <label for="uname">User Name</label>
-        <input type="text" name="user-name" class="form-control" [(ngModel)]="userName">
+        <input type="text" name="user-name" class="form-control" formControlName="userName">
     </div>
     <div class="form-group">
         <label for="pword">Password</label>
-        <input type="password" name="p-word" class="form-control" [(ngModel)]="password">
+        <input type="password" name="p-word" class="form-control" formControlName="password">
     </div>
     <div class="btn-container">
         <div class="error">{{ errorMessage }}</div>
-        <button class="btn btn-dark" (click)="login()">Login</button>
+        <button class="btn btn-dark">Login</button>
 
     </div>
-</div>
+</form> 

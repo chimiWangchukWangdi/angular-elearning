@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AuthApiService } from 'src/app/services/auth-api.service';
+import { AuthFacadeService } from 'src/app/services/auth-facade.service';
 
 @Component({
   selector: 'app-course',
@@ -16,22 +18,29 @@ export class CourseComponent implements OnInit {
   course: any;
 
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) { }
+  constructor(private route: ActivatedRoute, private http: HttpClient, private auth: AuthFacadeService) { }
 
   ngOnInit(): void {
     this.type = this.route.snapshot.params['type'];
-    this.id = this.route.snapshot.params['id'];
-    if (this.type === 'trending') {
-      this.url = 'http://localhost:4200/assets/data/trending-courses.json';
-    }
+    this.id = parseInt(this.route.snapshot.params['id']);
+    this.url = this.auth.fetchUrl(this.type);
     this.getCourse();
   }
 
-  getCourse() {
+  getCourse(): void {
     this.http.get(this.url).subscribe((courses) => {
+      //(res: any) => {
+      // this.courses = res;
+      //res.forEach((ans: any, index: number) => {
+      //if(ans?.id === +this.id){
+      //this.course = ans;
+      //}
+      //});
+
       this.courses = courses;
-      let index = this.courses.findIndex((course: { id: number; }) => course.id == this.id);
-      if (index > -1) {
+      let index = this.courses.findIndex((course: any) => course.id === this.id
+      );
+      if (index > -1) { 
         this.course = this.courses[index]
       }
     });
