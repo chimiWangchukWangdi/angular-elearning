@@ -14,11 +14,11 @@ export class AuthFacadeService {
     return this.blService.login(uname, pword);
   }
 
-  add(title: string, description: string) {
+  add(title: string, description: string): Observable<object> {
     return this.apiService.add(title, description);
 }
 
-fetchPost() {
+fetchPost(): Observable<any> {
   return this.apiService.fetchPost();
 }
 
