@@ -14,11 +14,11 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  goToHome() {
+  goToHome(): void {
     this.router.navigate(['home']);
   }
 
-  logout() {
+  logout(): void{
     this.router.navigate(['login']);
   }
 

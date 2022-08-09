@@ -1,16 +1,16 @@
 <app-header></app-header>
 <div class="course-container">
-    <form class="course-form" [formGroup]="courseForm" (ngSubmit) = "add()">
-        <div class="course-title">
-            <label for="c-title">Course Title</label>
-            <input type="text" id="coursetitle" name="coursetitle" class= "form-control" formControlName = "courseTitle">
-        </div>
-        <div class="course-desc">
-            <label for="c-desc">Course Description</label>
-            <input type="text" id="coursedesc" name="coursedesc" class= "form-control" formControlName =  "courseDesc">
-        </div>
-        <div class="btn-container">
-        <button class="btn btn-dark">Add</button>
-        </div>
-    </form>
+  <div class="course-form" [formGroup]="courseForm">
+    <div class="course-title">
+      <label for="c-title">Course Title</label>
+      <input type="text" name="coursetitle" class="form-control" formControlName="courseTitle">
+    </div>
+    <div class="course-desc">
+      <label for="c-desc">Course Description</label>
+      <textarea type="text" id="coursedesc" name="coursedesc" class="form-control" formControlName="courseDesc"></textarea>
+    </div>
+    <div class="btn-container">
+      <button class="btn btn-dark" (click)="add()">Add</button>
+    </div>
+  </div>
 </div>

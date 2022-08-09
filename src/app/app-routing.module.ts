@@ -12,12 +12,12 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent},
   { path: 'home-teacher', component: HomeTeacherComponent},
   { path: 'admin-dashboard', component: AdminDashboardComponent},
-  { path: 'course/:type/:id/:name', component: CourseComponent},
+  { path: 'course/:id/:name', component: CourseComponent},
   { path: '**', component: LoginComponent}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
-})  
+})
 export class AppRoutingModule { }
