@@ -45,7 +45,6 @@ export class CourseComponent implements OnInit {
       if (index > -1) {
         this.course = this.courses[index];
       } else {
-        console.log('error');
       }
     });
   }

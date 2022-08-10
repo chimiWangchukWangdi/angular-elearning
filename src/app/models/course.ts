@@ -8,5 +8,5 @@ export interface Course {
 export interface Post {
   title: string;
   description: string;
-  id: string;
+  id?: string;
 }

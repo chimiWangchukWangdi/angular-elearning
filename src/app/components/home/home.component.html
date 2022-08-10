@@ -8,8 +8,8 @@
       </div>
       <div class="courses-thumbnail">
         <div class="courses" *ngFor='let post of posts'>
-          <div class="detail">
-            <div class="name" (click)="goToCourse(post.id, post.title)"><strong> Title: </strong>{{ post.title }}</div>
+          <div class="detail" (click)="goToCourse(post.id, post.title)">
+            <div class="name"><strong> Title: </strong>{{ post.title }}</div>
             <div class="name"><strong>Description:</strong> {{ post.description }}</div>
           </div>
         </div>
