@@ -8,6 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
+import { HomeTeacherComponent } from './components/home-teacher/home-teacher.component';
+import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { HeaderComponent } from './components/header/header.component';
     HomeComponent,
     HeaderComponent,
     CourseComponent,
+    HomeTeacherComponent,
+    AdminDashboardComponent,
   ],
   imports: [
     BrowserModule,

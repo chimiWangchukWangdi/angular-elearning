@@ -1,40 +1,51 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { Post } from 'src/app/models/course';
+import { AuthFacadeService } from 'src/app/services/auth-facade.service';
 
 @Component({
   selector: 'app-course',
   templateUrl: './course.component.html',
-  styleUrls: ['./course.component.scss']
+  styleUrls: ['./course.component.scss'],
 })
 export class CourseComponent implements OnInit {
-
   type: string = '';
-  id: number = 0;
-  url: string = '';
-  courses: any;
-  index: number = 0;
-  course: any;
+  id: string = '';
+  courses: Post[];
+  course: Post;
+  reviewForm: FormGroup;
 
-
-  constructor(private route: ActivatedRoute, private http: HttpClient) { }
+  constructor(
+    private fb: FormBuilder,
+    private route: ActivatedRoute,
+    private auth: AuthFacadeService
+  ) {}
 
   ngOnInit(): void {
-    this.type = this.route.snapshot.params['type'];
+    this.setReviewForm();
     this.id = this.route.snapshot.params['id'];
-    if(this.type === 'trending') {
-      this.url = 'http://localhost:4200/assets/data/trending-courses.json';
-    }
+    this.getCourse();
   }
 
-  getCourse(){
-    this.http.get(this.url).subscribe((courses) =>{
+  setReviewForm(): void {
+    this.reviewForm = this.fb.group({
+      name: [''],
+      review: [''],
+    });
+    //TODO:CHIMI To add review feature
+  }
+
+  getCourse(): void{
+    this.auth.fetchPost().subscribe((courses) => {
       this.courses = courses;
-      let index = this.courses.findIndex((course: { id: number; }) => course.id == this.id);
-      if(this.index > -1) {
-        this.course = this.courses[index]
+      let index = this.courses.findIndex(
+        (course: any) => course.id === this.id
+      );
+      if (index > -1) {
+        this.course = this.courses[index];
+      } else {
       }
-    })
+    });
   }
-
 }
